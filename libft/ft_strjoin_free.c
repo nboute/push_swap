@@ -6,7 +6,7 @@
 /*   By: nboute <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 16:31:13 by nboute            #+#    #+#             */
-/*   Updated: 2017/01/11 16:32:24 by nboute           ###   ########.fr       */
+/*   Updated: 2017/02/01 10:35:32 by nboute           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,17 @@ char			*ft_strjoin_free(char *s1, char *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1 && s2)
-		return (ft_strdup(s2));
+	{
+		str = ft_strdup(s2);
+		ft_strdel(&s2);
+		return (str);
+	}
 	if (!s2 && s1)
-		return (ft_strdup(s1));
+	{
+		str = ft_strdup(s1);
+		ft_strdel(&s1);
+		return (str);
+	}
 	n = ft_strlen(s1) + ft_strlen(s2);
 	if ((str = (char*)malloc(n + 1)) == NULL)
 		return (NULL);

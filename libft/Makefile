@@ -6,7 +6,7 @@
 #    By: nboute <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 16:19:54 by nboute            #+#    #+#              #
-#    Updated: 2017/01/18 18:36:02 by nboute           ###   ########.fr        #
+#    Updated: 2017/02/04 19:04:40 by nboute           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,11 @@ SRCS = ft_atoi.c \
 	   ft_isalnum.c \
 	   ft_isalpha.c \
 	   ft_isascii.c \
+	   ft_isblank.c \
 	   ft_isdigit.c \
+	   ft_islower.c \
 	   ft_isprint.c \
+	   ft_isupper.c \
 	   ft_itoa.c \
 	   ft_itoa_base.c \
 	   ft_lstadd.c \
@@ -36,6 +39,8 @@ SRCS = ft_atoi.c \
 	   ft_lstiter.c \
 	   ft_lstmap.c \
 	   ft_lstnew.c \
+	   ft_lstrcat.c \
+	   ft_lstrdup.c \
 	   ft_map.c \
 	   ft_memalloc.c \
 	   ft_memccpy.c \
@@ -57,10 +62,11 @@ SRCS = ft_atoi.c \
 	   ft_putnbr.c \
 	   ft_putnbr_fd.c \
 	   ft_putnchar.c \
-	   ft_putnstr.c \
 	   ft_putstr.c \
+	   ft_putstrn.c \
 	   ft_putstr_fd.c \
 	   ft_sqrt.c \
+	   ft_strany.c \
 	   ft_strcat.c \
 	   ft_strccpy.c \
 	   ft_strcdup.c \
@@ -70,8 +76,10 @@ SRCS = ft_atoi.c \
 	   ft_strcmp.c \
 	   ft_strcn.c \
 	   ft_strcpy.c \
+	   ft_strcpy_free.c \
 	   ft_strdel.c \
 	   ft_strdup.c \
+	   ft_strdup_free.c \
 	   ft_strequ.c \
 	   ft_striter.c \
 	   ft_striteri.c \
@@ -101,6 +109,7 @@ SRCS = ft_atoi.c \
 	   ft_toupper.c \
 	   ft_utoa.c \
 	   ft_utoa_base.c \
+	   ft_wchartlen.c \
 	   get_next_line.c
 
 OBJ = $(SRCS:.c=.o)
@@ -112,7 +121,7 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 $(OBJ) : $(SRCS)
-	$(CC) -c $(SRCS) $(CFLAGS)
+	$(CC) -c $(CFLAGS) $(SRCS)
 
 clean :
 	rm -f $(OBJ)

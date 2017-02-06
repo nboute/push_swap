@@ -6,7 +6,7 @@
 /*   By: nboute <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 12:59:15 by nboute            #+#    #+#             */
-/*   Updated: 2017/01/18 18:35:21 by nboute           ###   ########.fr       */
+/*   Updated: 2017/02/01 12:56:59 by nboute           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,13 @@ int					ft_getnbr_base(const char *s, size_t b);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
+int					ft_isblank(char c);
 int					ft_isdigit(int c);
+int					ft_islower(int c);
+int					ft_isprint(int c);
+int					ft_isupper(int c);
 char				*ft_itoa(long n);
 char				*ft_itoa_base(long value, int base, short min);
-int					ft_isprint(int c);
 t_list				*ft_lst_last(t_list *list);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
@@ -63,6 +66,9 @@ void				ft_lstadd(t_list **alst, t_list *newl);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+char				*ft_lstrcat(char *dst, const char *src, size_t dlen,
+					size_t slen);
+char				*ft_lstrdup(const char *src, size_t slen);
 float				ft_map(float val, float range, float min2, float max2);
 void				*ft_memalloc(size_t size);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
@@ -84,11 +90,12 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putnchar(char c, size_t n);
-void				ft_putnstr(char const *str, size_t n);
 void				ft_putstr(char const *s);
+void				ft_putstrn(char const *str, size_t n);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putwchart(wchar_t *str);
 int					ft_sqrt(int nb);
+size_t				ft_strany(const char *str, int (*fct)(char));
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strccpy(char *dest, const char *src, int c);
 char				*ft_strcdup(const char *str, int c);
@@ -98,8 +105,10 @@ void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 size_t				ft_strcn(char *str, int c);
 char				*ft_strcpy(char *dest, const char *src);
+char				*ft_strcpy_free(char *dest, char *src);
 void				ft_strdel(char **as);
 char				*ft_strdup(const char *str);
+char				*ft_strdup_free(char *str);
 int					ft_strequ(char const *s1, char const *s2);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
